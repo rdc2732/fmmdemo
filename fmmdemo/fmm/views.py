@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Group, Function, Feature, Dependency
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404
+
+from .models import Group, Function, Feature, Dependency
+from .forms import NameForm
+
 
 class GroupList(ListView):
     model = Group
@@ -101,3 +105,16 @@ def loadfmm(request):
 
     response_text = u'FMM.txt load complete. ' + str(line_count) + u' records Processed. '
     return HttpResponse(response_text)
+
+
+def get_name(request):
+    print "get_name: request_method", request.method
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+        print "form is valid?", form.is_valid()
+        if form.is_valid():
+            return HttpResponseRedirect('/fmm/yourname/')
+    else:
+        form = NameForm()
+
+    return render(request, 'name.html',{'form': form})

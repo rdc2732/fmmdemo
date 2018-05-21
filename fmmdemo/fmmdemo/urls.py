@@ -21,4 +21,3 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^fmm/', include('fmm.urls')),
 ]
-print urlpatterns

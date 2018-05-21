@@ -10,4 +10,5 @@ urlpatterns = [
     url('^functions', views.FunctionList.as_view()),
     url('^features', views.FeatureList.as_view()),
     url('^loadfmm', views.loadfmm, name='loadfmm'),
+    url('^yourname',views.get_name, name='getname')
 ]

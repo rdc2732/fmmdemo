@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.forms import ModelForm
 
 # Create your models here.
 class Group(models.Model):
@@ -42,3 +43,9 @@ class Dependency(models.Model):
 
     def __str__(self):
         return self.name
+
+class FeatureForm(ModelForm):
+    class Meta:
+        model = Feature
+        fields = ['name','enabled','selected']
+
