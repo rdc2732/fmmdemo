@@ -1,8 +1,23 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Function</title>
+    <title>Functions</title>
+
+    {% block content %}
+        <h2>Functions</h2>
+        <ul>
+            {% for function in object_list %}
+                <li>{{ function.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
+
+
 </head>
 <body>
 

@@ -1,8 +1,23 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Group</title>
+
+    {% block content %}
+        <h2>Feature Groups</h2>
+        <ul>
+            {% for group in object_list %}
+                <li>{{ group.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
+
+
 </head>
 <body>
 
