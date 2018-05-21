@@ -1,0 +1,149 @@
+Installation,Engine Type,Turbo Prop,turboProp,afterBurner,Selection,1,1
+Installation,Engine Type,Turbo Fan,turboFan,n/a,Selection,1,1
+Installation,Engine Count,Single Engine,singleEngine,n/a,Selection,1,1
+Installation,Engine Count,Dual Engines,dualEngine,n/a,Selection,1,1
+Installation,ECU Enclosure Type,Air Cooled,airCooled,n/a,Selection,1,1
+Installation,ECU Enclosure Type,Fuel Cooled,fuelCooled,turboFan,Selection,1,1
+Installation,Engine ID,Right Engine ID Valid Configuration,rightEngID,dualEngine,Option,0,1
+Turbo Prop,Synchrophasing,TurboProp Syncrophasing,propSyncrophase,turboProp;dualEngine,Option,0,1
+Turbo Prop,Condition Lever,Condition Lever Installed,conditionLever,turboProp,Selection,1,1
+Turbo Prop,Propeller Pitch Controller,Propeller Pitch Controller Installed,propPitchController,turboProp,Selection,1,1
+Turbo Prop,Propeller Governor,Propeller Governor Torque Motor Installed,propGovernor,turboProp,Selection,1,1
+Turbo Prop,Turboprop Spare,Spare accounted for in Turboprop application,spareTurboProp,turboProp,Selection,1,1
+Turbo Prop,Feather Coil,Feather Coil Installed,featherCoil,turboProp,Selection,1,1
+Turbo Prop,Unfeather Pump,Unfeather Pump Installed,unfeatherPump,turboProp,Selection,1,1
+Turbo Prop,Motive Flow Lockout Coil,Motive Flow Lockout Coil Installed,motiveFlowLockoutCoil,turboProp,Selection,1,1
+Turbo Prop,Supply De-Oil Coil,Supply De-Oil Coil Installed,supplyDeOilCoil,turboProp,Selection,1,1
+Turbo Prop,Scavenge De-Oil Coil,Scavenge De-Oil Coil Installed,scavengeDeOilCoil,turboProp,Selection,1,1
+Turbo Prop,Engine Speed Analog Output,N2 Speed Analog Output,n2SpeedOutput,turboProp,Option,0,1
+Turbo Prop,Beta Pressure Sensor,Available,betaPressSensor,turboProp,Option,0,1
+Turbo Prop,NTS Oil Pressure Sensor,Available,ntsOilPressSensor,turboProp,Option,0,1
+Turbo Prop,Torque Sensor,Available,torqueSensor,turboProp,Option,0,1
+Turbo Prop,Exhaust Gas Temperature,EGT 4 Thermocouple,egt4TC,turboProp,Selection,1,1
+Turbo Prop,TT2 Temperature,3 Wire TT2,tt2ThreeWire,turboProp,Selection,1,1
+Turbo Prop,Propeller Pitch Control,PPC RVDT Installation,ppcVDT,turboProp,Selection,1,1
+Turbo Fan,Synchrophasing,TurboFan Syncrophasing,fanSyncrophase,turboFan;dualEngine,Option,0,1
+Turbo Fan,Compressor Guide Vanes (CGV) LVDT,CGV LVDT,cgvLVDT,turboFan,Selection,1,1
+Turbo Fan,Engine Speed Analog Output,N1 Speed Analog Output,n1SpeedOutput,turboFan,Option,0,1
+Turbo Fan,Exhaust Gas Temperature,EGT 3 Thermocouple,egt3TC,turboFan,Selection,1,1
+Turbo Fan,TT2 Temperature,2 Wire TT2,tt2TwoWire,turboFan,Selection,1,1
+Air Cooled ECU,Metering Valve,Metering Valve Torque Motor Installed,meteringValve,airCooled,Selection,1,1
+Air Cooled ECU,Igniter A and B High Side Driver,Igniter A and B High Side Driver Installed,HSIgniter,airCooled,Selection,1,1
+Air Cooled ECU,Overspeed Coil,Overspeed Coil Installed,overspeedCoil,airCooled,Selection,1,1
+Air Cooled ECU,Run Coil,Run Coil Installed,runCoil,airCooled,Selection,1,1
+Air Cooled ECU,Anti-Ice Coil,Anti-Ice Coil Installed,antiIceCoil,airCooled,Selection,1,1
+Air Cooled ECU,Starter Relay,Starter Relay Installed,starterRelay,airCooled,Selection,1,1
+Air Cooled ECU,Drivers and Torque Motor Wiring,Drivers and Torque Motor Wiring for Air Cooled Application,DTMWiringAC,airCooled,Selection,1,1
+Air Cooled ECU,Output Driver Selection,Output Driver Selection for Dual Channel,ODSDualChannel,airCooled,Selection,1,1
+Air Cooled ECU,Oil Temperature Sensor,Installed,oilTempSensorAvail,airCooled,Selection,1,1
+Air Cooled ECU,Engine Discrete Electrical Interface,Shared Channel,engDisSharedElectInt,airCooled,Selection,1,1
+Air Cooled ECU,Muted Recovery Degraded Mode ,Has muted recovery for degraded mode,ccdlDegradeLatch,airCooled,Selection,1,1
+Air Cooled ECU,Manual Power Reserve,Manual Power Reserve Discrete (MPR) option,powerRatingMPRDiscrete,airCooled,Option,0,1
+Air Cooled ECU,Manual Power Reserve,Manual Power Reserve Throttle Lever (MPR) option,powerRatingMPRPushThrough,airCooled,Option,0,1
+Air Cooled ECU,Fuel Temperature Sensor,Installed,fuelTempSensorAvail,airCooled,Selection,1,1
+Air Cooled ECU,Vibration Sensor,Installed,vibrationSense,airCooled,Option,0,1
+Fuel Cooled ECU,Oil Temperature Sensor,Not Installed,oilTempSensorNotAvail,fuelCooled,Selection,1,1
+Fuel Cooled ECU,Engine Discrete Electrical Interface,Single Channel Input,engDis1ChanInputElectInt,fuelCooled,Selection,1,1
+Fuel Cooled ECU,Low Oil Level Indicator,Available,singleChannelInputLOLAvail,fuelCooled,Selection,0,1
+Fuel Cooled ECU,Reset Degraded Mode ,Has reset enable for degraded mode,ccdlDegradeBypass,fuelCooled,Selection,1,1
+Fuel Cooled ECU,PCU Reset Switch,PCU Reset Switch Installed,pcuReset,fuelCooled,Option,0,1
+Fuel Cooled ECU,Engine Cutoff Indication,Engine Cutoff Indication Input,engineCutoffind,fuelCooled,Option,0,1
+Communications,GSE Interface,Has Ethernet transmit capability,gseEthernet,n/a,Selection,1,1
+Communications,GSE Interface,RS-422 Only,gseRS422Only,n/a,Selection,1,1
+Communications,Ethernet,Ethernet data streaming capability,gseEthernetDataStream,gseEthernet,Selection,1,2
+Communications,Ethernet,Ethernet data dump capability,gseEthernetDataDump,gseEthernet,Selection,1,2
+Communications,Avionics Data Bus,ARINC-429,Arinc,n/a,Selection,1,1
+Communications,Avionics Data Bus,MIL-STD-1553,Mil1553,n/a,Selection,1,1
+Communications,ARINC-429 Configuration,Dual ARINC-429,dualArinc,Arinc,Selection,1,1
+Communications,ARINC-429 Configuration,Quad ARINC-429,quadArinc,Arinc,Selection,1,1
+Communications,Cross Engine Data Link,Cross Engine Data Link,xEngDataLink,dualEngine,Option,0,1
+Engine Power,Power Demand,Power Demand Reverse to MPR Selection,plaRevMpr,airCooled,Selection,1,1
+Engine Power,Power Demand,Power Demand Idle to Max Selection,plaIdleMax,fuelCooled,Selection,1,1
+Engine Power,Throttle Control,Autothrottle Installed,autoThrottle,n/a,Option,0,1
+Engine Power,Final PLA Adjustment,Final PLA adjusted with Autothrottle trim,plaFinalAdjustedAutoThrottle,autoThrottle,Selection,1,1
+Engine Power,Final PLA Adjustment,Final PLA,plaFinalAdjusted,n/a,Selection,1,1
+Engine Power,ECO Mode,ECO Mode,ecoMode,n/a,Option,0,1
+Engine Power,Engine Idle Switch,Engine Idle Switch installed,engineIdleDiscrete,n/a,Option,0,1
+Engine Power,PLA Selection,PLA selection can be overridden by the Idle Discrete Switch,plaPrimSelectIdleSW,engineIdleDiscrete,Selection,1,1
+Engine Power,PLA Selection,PLA selection standard ,plaPrimSelectStandard,n/a,Selection,1,1
+Engine Power,PLA Input,PLA via Arinc,thrustViaArinc,n/a,Selection,1,1
+Engine Power,PLA Input,PLA via Analog,thrustViaDiscrete,n/a,Selection,1,1
+Engine Power,PLA Difference Fault Signal Selection,PLA Difference Fault Fail to Idle,plaDiffFailedIdle,n/a,Selection,1,1
+Engine Power,PLA Difference Fault Signal Selection,PLA Difference Fault choose High between LC & XC PLA,plaDiffChooseHigh,n/a,Selection,1,1
+Engine Power,PLA Single Fault Signal Selection,PLA Single Fault choose remaining Healthy plus Offset,plaOffsetHealthy,plaDiffFailedIdle,Selection,1,1
+Engine Power,PLA Single Fault Signal Selection,PLA Single Fault choose remaining Healthy,plaChooseHealthy,plaDiffChooseHigh,Selection,1,1
+Engine Power,PLA Dual Fault Signal Selection,PLA Dual Fault set Degrade Mode 2,plaBothFaultedDG2,plaDiffFailedIdle,Selection,1,1
+Engine Power,PLA Dual Fault Signal Selection,PLA Dual Fault Fail to Default Value,plaBothFaultedDV,plaDiffChooseHigh,Selection,1,1
+Engine Power,PLA Takeoff Limitation,Engine Power Rating Limited by Altitude,plaTakeoffLimitation,n/a,Selection,1,1
+Engine Power,PLA Takeoff Limitation,Engine Power Rating not Limited by Altitude,plaTakeoffUnrestricted,n/a,Selection,1,1
+Electrical Power,PMA Power,PMA Power Source,pmaPower,n/a,Option,0,1
+Electrical Power,Aircraft Power,Single Aircraft Power Source,singleACPwr,n/a,Selection,1,1
+Electrical Power,Aircraft Power,Dual Aircraft Power Source,dualACPwr,n/a,Selection,1,1
+Electrical Power,Electrical Grounding,Common-Ground System,commonGnd,n/a,Selection,1,1
+Electrical Power,Electrical Grounding,Isolated-Ground System,isolatedGnd,n/a,Selection,1,1
+Engine Speed,Speed,N1,n1speed,n/a,Selection,1,2
+Engine Speed,Speed,N2 Twin Spool,n2Twin,n/a,Selection,1,2
+Engine Speed,Speed,N2 Single Spool,n2Single,turboProp,Selection,1,2
+Engine Speed,Secondary N2,Has Secondary N2,n2SecondarySource,n/a,Selection,1,1
+Engine Speed,Secondary N2,No Secondary N2,n2SingleSource,n/a,Selection,1,1
+Engine Speed,N1,Has N1,n1Common,n/a,Selection,0,1
+Engine Speed,N1,Has N1,n1SingleSource,n1Common,Selection,1,1
+Aircraft Interfaces,Mach Hold,Mach Hold Mode Enabled,machHold,n/a,Option,0,1
+Aircraft Interfaces,Mach Hold,Independent Engine Wiring Mach Hold,machHoldSingleEngineWiring,machHold;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Mach Hold,Shared Engine Wiring Mach Hold,machHoldDualEngineWiring,machHold;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Engine Wiring Configuration,Independent Engine Wiring,indepEngineWiring,n/a,Selection,1,1
+Aircraft Interfaces,Engine Wiring Configuration,Shared Engine Wiring,sharedEngineWiring,dualEngine,Selection,1,1
+Aircraft Interfaces,Start Command Switch,Start Command SW Installed,startCmdSW,n/a,Option,0,1
+Aircraft Interfaces,Start Command Switch,Independent Engine Wiring Start,startCmdSingleEngineWiring,startCmdSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Start Command Switch,Shared Engine Wiring Start,startCmdDualEngineWiring,startCmdSW;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Shutdown Switch,Shutdown SW Installed,shutdownSW,n/a,Option,0,1
+Aircraft Interfaces,Shutdown Switch,Independent Engine Wiring Shutdown,shutdownSingleEngineWiring,shutdownSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Shutdown Switch,Shared Engine Wiring Shutdown,shutdownDualEngineWiring,shutdownSW;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Ground Idle Switch,Ground Idle SW Installed,groundIdleSW,n/a,Option,0,1
+Aircraft Interfaces,Ground Idle Switch,Independent Engine Wiring GI,groundIdleSingleEngineWiring,groundIdleSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Ground Idle Switch,Shared Engine Wiring GI,groundIdleDualEngineWiring,groundIdleSW;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Flight Idle Switch,Flight Idle SW Installed,flightIdleSW,n/a,Option,0,1
+Aircraft Interfaces,Flight Idle Switch,Independent Engine Wiring FI,flightIdleSingleEngineWiring,flightIdleSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Flight Idle Switch,Shared Engine Wiring FI,flightIdleDualEngineWiring,flightIdleSW;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Reverse Request Switch,Reverse Request SW Installed,revRqstSW,n/a,Option,0,1
+Aircraft Interfaces,Reverse Request Switch,Independent Engine Wiring RR,revRqstSingleEngineWiring,revRqstSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Reverse Request Switch,Shared Engine Wiring RR,revRqstDualEngineWiring,revRqstSW;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Ignition Switch,Ignition SW Installed,ignitionSW,n/a,Option,0,1
+Aircraft Interfaces,Ignition Switch,Independent Engine Wiring Ign,ignitSingleEngineWiring,ignitionSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Ignition Switch,Shared Engine Wiring Ign,ignitDualEngineWiring,ignitionSW;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Weight-on-wheels Switch,WOW SW Installed,wowSW,n/a,Option,0,1
+Aircraft Interfaces,Weight-on-wheels Switch,Independent Engine Wiring WOW,wowSingleEngineWiring,wowSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Weight-on-wheels Switch,Shared Engine Wiring WOW,wowDualEngineWiring,wowSW;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Maintenance Enabled Switch,Maintenance Enabled SW Installed,maintEnableSW,n/a,Option,0,1
+Aircraft Interfaces,Maintenance Enabled Switch,Independent Engine Wiring Maint,maintSingleEngineWiring,maintEnableSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Maintenance Enabled Switch,Shared Engine Wiring Maint,maintDualEngineWiring,maintEnableSW;sharedEngineWiring,Selection,1,1
+Aircraft Interfaces,Anti-Ice Command Switch,Anti-Ice Command SW Installed,aiCmdSW,n/a,Option,0,1
+Aircraft Interfaces,Anti-Ice Command Switch,Independent Engine Wiring A/I Command,aiCmdSingleEngineWiring,aiCmdSW;indepEngineWiring,Selection,1,1
+Aircraft Interfaces,Anti-Ice Command Switch,Shared Engine Wiring A/I Command,aiCmdDualEngineWiring,aiCmdSW;sharedEngineWiring,Selection,1,1
+Monitoring,Oil Filter Bypass Indication,Closed Circuit Indicates Bypass,oilFiltBypClsdIsBypass,fuelCooled,Selection,1,1
+Monitoring,Oil Filter Bypass Indication,Open Circuit Indicates Bypass,oilFiltBypOpenIsBypass,airCooled,Selection,1,1
+Monitoring,Oil Filter Bypass Connection,Shared Channel,oilFiltBypSharedElectInt,engDisSharedElectInt,Selection,1,1
+Monitoring,Fuel Filter Bypass Connection,Shared Channel,wfFiltBypSharedElectInt,engDisSharedElectInt,Selection,1,1
+Monitoring,Oil Filter Bypass Connection,Single Channel Input,singleChannelInputOilFiltByp,engDis1ChanInputElectInt,Selection,1,1
+Monitoring,Fuel Filter Bypass Connection,Single Channel Input,singleChannelInputWfFiltByp,engDis1ChanInputElectInt,Selection,1,1
+Monitoring,Fuel Filter Bypass Indication,Closed Circuit Indicates Bypass,wfFiltBypClsdIsBypass,fuelCooled,Selection,1,1
+Monitoring,Fuel Filter Bypass Indication,Open Circuit Indicates Bypass,wfFiltBypOpenIsBypass,airCooled,Selection,1,1
+Monitoring,Vibration Output for GSE,Vibration Output for GSE interface installed,vibrationOutput,n/a,Option,0,1
+Monitoring,Oil Pressure Sensor Type,Dual Transducer Pressure Sensor; Single Channel Inputs,pSnsrDualXDCRSingleChanIn,airCooled,Selection,1,1
+Monitoring,Oil Pressure Sensor Type,Single Transducer Pressure Sensor; Single Channel Inputs,pSnsrSingleXDCRSingleChanIn,fuelCooled,Selection,1,1
+Monitoring,Chip Detector Connection,Shared Channel,chipDetectDualChSharedInput ,n/a,Selection,1,1
+Monitoring,Chip Detector Connection,Single Channel Input,chipDetectSingleChInput,n/a,Selection,1,1
+Monitoring,P3 Sensor Installation,External P3 sensors each plumbed to a single ECU Channel,p3ExternalSeparatePipes ,airCooled,Selection,1,1
+Monitoring,P3 Sensor Installation,ECU Internal P3 sensors each plumbed to a single ECU Channel,p3InternalSeperatePipes,fuelCooled,Selection,1,1
+Monitoring,Filter Type Available,Self-Adjusting Time Constant Filter for analog inputs,filterSelfAdjusting,n/a,Option,0,1
+Monitoring,Filter Inlet Static Pressure Selection,Raw Static Pressure Unfiltered,psUnfiltered,n/a,Selection,1,1
+Monitoring,Filter Inlet Static Pressure Selection,Raw Static Pressure Filtered,psFiltered,filterSelfAdjusting,Selection,1,1
+Monitoring,Filter Inlet Static Pressure Type,Filter using Self-Adjusting Time Constant Filter,psSelfAdjustingFiltered,filterSelfAdjusting;psFiltered,Selection,1,1
+Monitoring,Inlet Static Pressure Location,Inlet Static Pressure is measured at a plumbed location,psPlumbed,n/a,Selection,1,1
+Monitoring,Inlet Static Pressure Location,Inlet Static Pressure is measured internally in ECU,psUnplumbed,n/a,Selection,1,1
+Environmental,Audio Frequency Conducted Susceptibility,DO-160 Audio Frequency Conducted Susceptibility Requirements,do160AFCS,n/a,Selection,1,1
+Environmental,Audio Frequency Conducted Susceptibility,MIL-STD-461 Audio Frequency Conducted Susceptibility Requirements,mil461AFCS,n/a,Selection,1,1
+Environmental,Radio Frequency Conducted Susceptibility,DO-160 Radio Frequency Conducted Susceptibility Requirements,do160RFCS,n/a,Selection,1,1
+Environmental,Radio Frequency Conducted Susceptibility,MIL-STD-461 Radio Frequency Conducted Susceptibility Requirements,mil461RFCS,n/a,Selection,1,1
+Environmental,Radio Frequency Conducted Emissions,DO-160 Radio Frequency Conducted Emissions Requirements,do160RFCE,n/a,Selection,1,1
+Environmental,Radio Frequency Conducted Emissions,MIL-STD-461 Radio Frequency Conducted Emissions Requirements,mil461RFCE,n/a,Selection,1,1
