@@ -9,12 +9,13 @@
     <title>PCC Feature Model</title>
 </head>
 <body>
-        <h3>Group: {{group_name}}</h3>
+        <h4>Feature Model</h4>
         <ul>
             {% for group in group_list %}
-                <li>{{ group.name }}</li>
+            <li><a href='/fmm/fmm_main/{{ group.pk }}'>{{ group.name }}</a></li>
             {% endfor %}
         </ul>
+        <h4>Group: {{group_name}}</h4>
         <table>
             <tr>
                 <th>Function</th>
