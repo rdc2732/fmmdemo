@@ -1,0 +1,31 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PCC Feature Model</title>
+</head>
+<body>
+        <h3>Group: {{group_name}}</h3>
+        <ul>
+            {% for group in group_list %}
+                <li>{{ group.name }}</li>
+            {% endfor %}
+        </ul>
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Feature</th>
+            </tr>
+            {% for function in function_list %}
+            <tr>
+                <td>{{ function.name }}</td>
+                <td>{{ name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>

@@ -62,6 +62,34 @@ def index(request):
     return HttpResponse(u"You're looking at fmmgui home page.")
 
 
+# =============================================================================
+
+def fmm_main(request, group_number):
+    print "fmm_main"
+    if Group.objects.filter(pk=group_number).count() > 0:
+        group = Group.objects.get(pk=group_number)
+        group_name = group.name
+        group_list = list(Group.objects.order_by('name'))
+    else:
+        group_name = "Group_Not_Found"
+        return HttpResponse(u"/fmm/fmm_main/%s" % group_name)
+
+    template = 'fmm/fmm_main.html'
+    function_list = list(group.function_set.all())
+
+    context = {'group_name': group_name, 'group_list': group_list, 'function_list': function_list}
+    return render(request, template, context)
+
+
+def fmm_main_index(request):
+    print "fmm_main_index"
+    groups = Group.objects.order_by('name')
+    first_group = str(groups[0].pk)
+    return HttpResponseRedirect(u"/fmm/fmm_main/%s" % first_group)
+
+# =============================================================================
+
+
 def loadfmm(request):
     fmm = open(u'FMM.txt', u'r')
     line_count = 0
