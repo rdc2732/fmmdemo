@@ -22,6 +22,10 @@ class FeatureList(ListView):
     queryset = Feature.objects.select_related(u'function', u'function__group').all()
 
 
+class DependencyList(ListView):
+    queryset = Group.objects.prefetch_related('function','function__feature','function__feature__dependency')
+
+
 class GroupFunctionList(ListView):
     template_name = u'fmm/function_by_group.html'
     context_object_name = u'group'

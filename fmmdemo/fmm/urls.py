@@ -9,6 +9,7 @@ urlpatterns = [
     url('^groups', views.GroupList.as_view()),
     url('^functions', views.FunctionList.as_view()),
     url('^features', views.FeatureList.as_view()),
+    url('^dependency', views.DependencyList.as_view()),
     url('^loadfmm', views.loadfmm, name='loadfmm'),
     url('^yourname',views.get_name, name='getname'),
     url(r'^fmm_main/$', views.fmm_main_index, name="main_index"),

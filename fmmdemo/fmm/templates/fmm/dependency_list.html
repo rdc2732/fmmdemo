@@ -16,14 +16,14 @@
                     <th>Group</th>
                     <th>Function</th>
                     <th>Feature</th>
-                    <th>Selected</th>
+                    <th>Dependency</th>
                 </tr>
-                {% for feature in object_list %}
+                {% for dependency in object_list %}
                 <tr>
-                    <td>{{ feature.function.group.name }}</td>
-                    <td>{{ feature.function.name }}</td>
-                    <td>{{ feature.name }}</td>
-                    <td>{{ feature.selected }}</td>
+                    <td>{{ name }}</td>
+                    <td>{{ function.name }}</td>
+                    <td>{{ function.feature.name }}</td>
+                    <td>{{ function.feature.dependency.name }}</td>
                 </tr>
                 {% endfor %}
             </table>
