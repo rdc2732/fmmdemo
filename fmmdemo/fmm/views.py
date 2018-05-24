@@ -150,3 +150,9 @@ def get_name(request):
         form = NameForm()
 
     return render(request, 'name.html',{'form': form})
+
+
+def test(request):
+    print "test view"
+    return render(request, 'fmm/test.html/', {})
+

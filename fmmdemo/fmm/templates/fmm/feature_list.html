@@ -1,6 +1,5 @@
-{% load bootstrap3 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{% extends 'fmm/base.html' %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +10,7 @@
     <body>
         {% block content %}
             <h2>Feature Model Master</h2>
-            <table>
+            <table class="table table-hover">
                 <tr>
                     <th>Group</th>
                     <th>Function</th>
@@ -19,7 +18,7 @@
                     <th>Selected</th>
                 </tr>
                 {% for feature in object_list %}
-                <tr>
+                <tr class="table-success">
                     <td>{{ feature.function.group.name }}</td>
                     <td>{{ feature.function.name }}</td>
                     <td>{{ feature.name }}</td>

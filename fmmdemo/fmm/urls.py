@@ -12,6 +12,7 @@ urlpatterns = [
     url('^dependency', views.DependencyList.as_view()),
     url('^loadfmm', views.loadfmm, name='loadfmm'),
     url('^yourname',views.get_name, name='getname'),
+    url('^test', views.test, name='test'),
     url(r'^fmm_main/$', views.fmm_main_index, name="main_index"),
     url(r'^fmm_main/(?P<group_number>[0-9]+)/$', views.fmm_main, name="fmm_main"),
 ]
