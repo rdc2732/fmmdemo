@@ -24,7 +24,7 @@ class FeatureList(ListView):
 
 class DependencyList(ListView):
     queryset = Group.objects.prefetch_related('function','function__feature','function__feature__dependency')
-
+    template_name = 'fmm/dependency_list.html'
 
 class GroupFunctionList(ListView):
     template_name = u'fmm/function_by_group.html'
@@ -69,7 +69,6 @@ def index(request):
 # =============================================================================
 
 def fmm_main(request, group_number):
-    print "fmm_main"
     if Group.objects.filter(pk=group_number).count() > 0:
         group = Group.objects.get(pk=group_number)
         group_name = group.name
@@ -79,14 +78,13 @@ def fmm_main(request, group_number):
         return HttpResponse(u"/fmm/fmm_main/%s" % group_name)
 
     template = 'fmm/fmm_main.html'
-    function_list = list(group.function_set.all())
+    feature_list = feature_list = Feature.objects.filter(function__group__pk=group_number)
 
-    context = {'group_name': group_name, 'group_list': group_list, 'function_list': function_list}
+    context = {'group_name': group_name, 'group_list': group_list, 'feature_list': feature_list}
     return render(request, template, context)
 
 
 def fmm_main_index(request):
-    print "fmm_main_index"
     groups = Group.objects.order_by('name')
     first_group = str(groups[0].pk)
     return HttpResponseRedirect(u"/fmm/fmm_main/%s" % first_group)
@@ -156,3 +154,12 @@ def test(request):
     print "test view"
     return render(request, 'fmm/test.html/', {})
 
+# =============================================================================
+
+def edit_feature(request, feature_number):
+    template = 'fmm/feature_detail.html'
+    feature = Feature.objects.get(pk=feature_number)
+    context = {'feature': feature}
+    return render(request, template, context)
+
+# =============================================================================

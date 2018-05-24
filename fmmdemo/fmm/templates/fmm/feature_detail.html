@@ -1,0 +1,12 @@
+<h2>{{ feature.name }}</h2>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'fmm:edit_feature' feature.id %}" method="get">
+{% csrf_token %}
+
+  <input type="radio" name="gender" value="Yes" checked> Yes<br>
+  <input type="radio" name="gender" value="No"> No<br>
+
+<input type="submit" value="OK" />
+</form>

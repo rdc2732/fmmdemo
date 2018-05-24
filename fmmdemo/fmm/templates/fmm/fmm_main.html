@@ -1,26 +1,41 @@
 {% extends 'fmm/base.html' %}
-
 {% block content %}
-    <h4>Feature Model</h4>
-    <ul>
-        {% for group in group_list %}
-        <li><a href='/fmm/fmm_main/{{ group.pk }}'>{{ group.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <h4>Group: {{group_name}}</h4>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="#">PCC FMMGui</a>
+            </div>
+            <ul class="nav navbar-nav">
+                {% for group in group_list %}
+                    <li><a href='/fmm/fmm_main/{{ group.pk }}'>{{ group.name }}</a></li>
+                {% endfor %}
+                </ul>
+        </div>
+    </nav>
+
+    <h4 align="center">Group: {{group_name}}</h4>
     <table class="table table-hover">
         <thead>
-            <tr>
-                <th>Function</th>
-                <th>Feature</th>
+            <tr scope="col">
+                <th scope="col">Function</th>
+                <th scope="col">Feature</th>
+                <th scope="col">Keyword</th>
+                <th scope="col">Selected</th>
+                <th scope="col">Enabled</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
-            {% for function in function_list %}
-            <tr class="table-success">
-                <td>{{ function.name }}</td>
-                <td>{{ function.feature.name }}</td>
-            </tr>
+            {% for function in feature_list %}
+                <tr class="table-success">
+                    <td>{{ function.function.name }}</td>
+                    <td>{{ function.name }}</td>
+                    <td>{{ function.selection_name }}</td>
+                    <td>{{ function.selected }}</td>
+                    <td>{{ function.enabled }}</td>
+                    <td><a href="/fmm/feature/{{function.pk}}" class="btn btn-info" role="button">Edit</a></td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
