@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404
 
-from .models import Group, Function, Feature, Dependency
+from .models import Group, Function, Feature, Dependency, TestFeature
 from .forms import NameForm
 
 
@@ -92,7 +92,7 @@ def fmm_main_index(request):
 # =============================================================================
 
 
-def loadfmm(request):
+def loadfmm_old(request):
     fmm = open(u'FMM.txt', u'r')
     line_count = 0
     if Group.objects.count() > 0:
@@ -118,7 +118,7 @@ def loadfmm(request):
             function.save()
         function = Function.objects.get(name=function_name, group__name=group_name)
         features = Feature.objects.filter(name=feature_name, function__name=function_name, function__group__name=group_name)
-        if features.count() == 0:
+        if not features.exists():
             feature = function.feature_set.create(name=feature_name)
             feature.selection_name = selection_name
             feature.rule_type = rule_type
@@ -127,11 +127,12 @@ def loadfmm(request):
             feature.save()
         feature = Feature.objects.get(name=feature_name, function__name=function_name, function__group__name=group_name)
         for dependency in dependencies:
-            if dependency != u'n/a':
-                feature.dependency_set.create(name=dependency)
+
+            feature.dependency_set.create(name=dependency)
 
         feature.save()
         line_count += 1
+        print "lines processed:", line_count
 
     response_text = u'FMM.txt load complete. ' + str(line_count) + u' records Processed. '
     return HttpResponse(response_text)
@@ -155,11 +156,85 @@ def test(request):
     return render(request, 'fmm/test.html/', {})
 
 # =============================================================================
-
+# Need to fix problem of grabbing features with same names.  I think that is why the linking sometimes does not work.
 def edit_feature(request, feature_number):
     template = 'fmm/feature_detail.html'
     feature = Feature.objects.get(pk=feature_number)
-    context = {'feature': feature}
+    dependency_list =  Dependency.objects.filter(feature__pk=feature_number)
+    print "view: edit_feature, feature:", feature, feature.pk, "; dependencies: ", dependency_list
+    if dependency_list.count >0:
+        for d in dependency_list:
+            print "dependency: ", d.pk, d.name
+    context = {'feature': feature, 'dependency_list':dependency_list}
     return render(request, template, context)
 
 # =============================================================================
+class TestFeatureList(ListView):
+    model = TestFeature
+
+
+def loadfmm(request):
+    fmm = open(u'FMM.txt', u'r')
+    line_count = 0
+    print "lfmm: ", TestFeature.objects.count()
+    if TestFeature.objects.count() > 0:
+        TestFeature.objects.all().delete()
+    print "lfmm: ", TestFeature.objects.count()
+    for line in fmm:
+        # 0-Group, 1-Function, 2-Feature_Name, 3-Feature, 4-Dependency, 5-Rule, 6-Min, 7-Max
+
+        # group = models.CharField(max_length=50, blank=True)
+        # function = models.CharField(max_length=50, blank=True)
+        # feature_name = models.CharField(max_length=100, blank=True)
+        # name = models.CharField(max_length=50, blank=True)  # keyword or feature
+        # dependency = models.ManyToManyField("self", symmetrical=False)
+        # rule_type = models.CharField(max_length=15, blank=True, choices=RULE_TYPES)
+        # option_min = models.IntegerField(blank=True, null=True)
+        # option_max = models.IntegerField(blank=True, null=True)
+        # enabled = models.NullBooleanField(default=False)
+        # selected = models.NullBooleanField(default=False)
+
+        line_data = line.rstrip().split(u',')
+        group_name = line_data[0]
+        function_name = line_data[1]
+        feature_name = line_data[2]
+        feature = line_data[3] # 'name' in the model
+        dependencies = line_data[4].split(u';')
+        rule_type = line_data[5]
+        option_min = line_data[6]
+        option_max = line_data[7]
+
+        # for dependency in dependencies:
+        #     print "dep1:", dependency, TestFeature.objects.filter(name=dependency).count()
+        #
+        # for dependency in dependencies:
+        #     if TestFeature.objects.filter(name=dependency).count() == 0:
+        #         t = TestFeature(name=dependency)
+        #         t.save()
+        #
+        # for dependency in dependencies:
+        #     print "dep2:", dependency, TestFeature.objects.filter(name=dependency).count()
+        #
+        # print "lfmm3: ", feature, dependencies
+        # print "lfmm4: ",
+        # for t in TestFeature.objects.all():
+        #     print t.pk, t.name
+        # for dependency in dependencies:
+
+        t = TestFeature(
+            group=group_name,
+            function=function_name,
+            feature_name=feature_name,
+            name=feature,
+            dependency=dependencies,
+            rule_type=rule_type,
+            option_min=option_min,
+            option_max=option_max
+          )
+        t.save()
+
+        line_count += 1
+        print "lines processed:", line_count
+
+    response_text = u'FMM.txt load complete. ' + str(line_count) + u' records Processed. '
+    return HttpResponse(response_text)

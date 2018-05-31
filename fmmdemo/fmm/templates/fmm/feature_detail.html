@@ -5,8 +5,37 @@
 <form action="{% url 'fmm:edit_feature' feature.id %}" method="get">
 {% csrf_token %}
 
-  <input type="radio" name="gender" value="Yes" checked> Yes<br>
-  <input type="radio" name="gender" value="No"> No<br>
+<form>
+    <fieldset id="group1"> Enabled <br>
+        <input type="radio" value="Yes" name="Yes">Yes<br>
+        <input type="radio" value="No" name="No">No<br>
+    </fieldset>
+
+    <fieldset id="group2">Selected <br>
+        <input type="radio" value="Yes" name="Yes">Yes<br>
+        <input type="radio" value="No" name="No">No<br>
+    </fieldset>
+</form>
+
+
 
 <input type="submit" value="OK" />
 </form>
+
+
+<h4 align="center">Dependencies</h4>
+<table align="center" class="table table-hover">
+    <thead>
+        <tr scope="col">
+            <th scope="col">Dependent Feature</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for dependency in dependency_list %}
+            <tr class="table-success">
+                <td>{{ dependency.name }}</td>
+                <td><a href="/fmm/feature/{{dependency.pk}}" class="btn btn-info" role="button">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

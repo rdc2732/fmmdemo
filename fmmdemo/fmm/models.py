@@ -49,3 +49,22 @@ class FeatureForm(ModelForm):
         model = Feature
         fields = ['name','enabled','selected']
 
+
+class TestFeature(models.Model):
+    # 0-Group, 1-Function, 2-Feature_Name, 3-Feature='name', 4-Dependency, 5-Rule, 6-Min, 7-Max
+    CHOICE = u'CHO'
+    SELECTION = u'SEL'
+    RULE_TYPES = ((CHOICE, u'choice'), (SELECTION, u'selection'))
+    group = models.CharField(max_length=50, blank=True)
+    function = models.CharField(max_length=50, blank=True)
+    feature_name = models.CharField(max_length=100, blank=True)
+    name = models.CharField(max_length=50, blank=True) # keyword or feature
+    dependency = models.CharField(max_length=100, blank=True)
+    rule_type = models.CharField(max_length=15, blank=True, choices=RULE_TYPES)
+    option_min = models.IntegerField(blank=True, null=True)
+    option_max = models.IntegerField(blank=True, null=True)
+    enabled = models.NullBooleanField(default=False)
+    selected = models.NullBooleanField(default=False)
+
+    def __str__(self):
+        return self.name

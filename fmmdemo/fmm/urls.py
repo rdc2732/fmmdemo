@@ -8,6 +8,7 @@ urlpatterns = [
     url('^(?P<group_number>[0-9]+)/(?P<function_number>[0-9]+)/$', views.FunctionFeatureList.as_view(), name='function_list'),
     url('^groups', views.GroupList.as_view()),
     url('^functions', views.FunctionList.as_view()),
+    url('^testfeatures', views.TestFeatureList.as_view()),
     url('^features', views.FeatureList.as_view()),
     url('^dependency', views.DependencyList.as_view()),
     url('^loadfmm', views.loadfmm, name='loadfmm'),
