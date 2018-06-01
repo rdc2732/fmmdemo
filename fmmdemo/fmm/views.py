@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404
 
-from .models import Group, Function, Feature, Dependency, TestFeature
+from .models import Group, Function, Feature, Dependency, TestFeature, TestFeature2, TestDependency2
 from .forms import NameForm
 
 
@@ -174,6 +174,66 @@ class TestFeatureList(ListView):
 
 
 def loadfmm(request):
+    fmm = open(u'FMM.txt', u'r')
+    line_count = 0
+    print "lfmm: ", TestFeature2.objects.count()
+    if TestFeature2.objects.count() > 0:
+        TestFeature2.objects.all().delete()
+    print "lfmm: ", TestFeature2.objects.count()
+    for line in fmm:
+        # 0-Group, 1-Function, 2-Feature_Name, 3-Feature, 4-Dependency, 5-Rule, 6-Min, 7-Max
+
+        # group = models.CharField(max_length=50, blank=True)
+        # function = models.CharField(max_length=50, blank=True)
+        # feature_name = models.CharField(max_length=100, blank=True)
+        # name = models.CharField(max_length=50, blank=True)  # keyword or feature
+        # rule_type = models.CharField(max_length=15, blank=True, choices=RULE_TYPES)
+        # option_min = models.IntegerField(blank=True, null=True)
+        # option_max = models.IntegerField(blank=True, null=True)
+        # enabled = models.NullBooleanField(default=False)
+        # selected = models.NullBooleanField(default=False)
+
+        line_data = line.rstrip().split(u',')
+        group_name = line_data[0]
+        function_name = line_data[1]
+        feature_name = line_data[2]
+        feature = line_data[3] # 'name' in the model
+        dependencies = line_data[4].split(u';')
+        rule_type = line_data[5]
+        option_min = line_data[6]
+        option_max = line_data[7]
+
+        t = TestFeature2(
+            group=group_name,
+            function=function_name,
+            feature_name=feature_name,
+            name=feature,
+            rule_type=rule_type,
+            option_min=option_min,
+            option_max=option_max
+          )
+        t.save()
+
+        for dependency in dependencies:
+            d = t.testdependency2_set.create(name=dependency)
+            print "parent = ", t.name, " child = ", d.name
+
+
+
+
+
+        dependency = dependencies
+
+        line_count += 1
+        print "lines processed:", line_count
+
+    response_text = u'FMM.txt load complete. ' + str(line_count) + u' records Processed. '
+    return HttpResponse(response_text)
+
+
+#=======================================================================
+
+def loadfmm_old2(request):
     fmm = open(u'FMM.txt', u'r')
     line_count = 0
     print "lfmm: ", TestFeature.objects.count()
