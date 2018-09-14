@@ -169,7 +169,7 @@ def edit_feature(request, feature_number):
     return render(request, template, context)
 
 # =============================================================================
-class TestFeatureList(ListView):
+class TestFeatureList2(ListView):
     model = TestFeature
 
 
